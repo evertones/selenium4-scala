@@ -1,0 +1,25 @@
+//apply plugin: 'scala'
+//apply plugin: 'java'
+//apply plugin: 'idea'
+//apply plugin: 'application'
+
+plugins {
+    id "com.github.maiflai.scalatest" version "0.30"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+apply plugin: 'scala'
+
+group       = "org.evertones"
+version     = "0.0.1-SNAPSHOT"
+description = "Selenium 4 with Scala"
+
+apply from: 'project/tests.gradle'
+apply from: 'project/scalatest.gradle'
+

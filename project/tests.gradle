@@ -1,0 +1,17 @@
+apply plugin: 'com.github.maiflai.scalatest'
+
+ext.sclArt = { String artifactId ->
+    sprintf('%s_%s', artifactId, project.ext.get('scala.branch'))
+}
+
+dependencies {
+    testImplementation group: 'org.scalactic', name: sclArt('scalactic'), version: project.ext.get('scalactic.version')
+    testImplementation group: 'org.scalatest', name: sclArt('scalatest'), version: project.ext.get('scalatest.version')
+
+    testRuntimeOnly group: 'org.pegdown', name: 'pegdown', version: project.ext.get('pegdown.scalaTestVersion')
+
+    compile group: 'com.typesafe', name: 'config', version: project.ext.get('typesafe.config.version')
+
+    // Selenium test framework
+    testImplementation group: 'org.seleniumhq.selenium',      name: 'selenium-java',        version: project.ext.get('selenium.version')
+}

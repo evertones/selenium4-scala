@@ -1,0 +1,27 @@
+ext.getConfigProp = { String property ->
+    project.ext.get('test.' + property)
+}
+
+ext.getConfigMap = {
+    def config = [
+            'test.suite'   : getConfigProp('suite'),
+            'test.parallel': getConfigProp('parallel').toInteger(),
+    ]
+
+    return config
+}
+
+test {
+    // force run task all the time
+    outputs.upToDateWhen { false }
+
+    ext.config = getConfigMap
+
+    if (config['test.suite']) {
+        suite 'org.evertones.test.' + config['test.suite']
+    }
+
+    if (config['test.parallel']) {
+        maxParallelForks = config['test.parallel']
+    }
+}
