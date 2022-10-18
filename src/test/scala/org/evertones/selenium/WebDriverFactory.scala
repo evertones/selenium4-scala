@@ -10,7 +10,7 @@ class WebDriverFactory {
     def createRemoteInstance(): RemoteWebDriver = {
         val capabilities = new ChromeOptions().setAcceptInsecureCerts(true)
 
-        val remoteUrl    = new URL("http://localhost:4444")
+        val remoteUrl    = new URL("http://0.0.0.0:4444")
         new RemoteWebDriver(remoteUrl, capabilities)
     }
 

@@ -1,4 +1,4 @@
-package org.evertones.test
+package org.evertones.test.selenium
 
 import org.scalatest.{FunSpec, Suites}
 
