@@ -14,4 +14,5 @@ dependencies {
 
     // Selenium test framework
     testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: project.ext.get('selenium.version')
+    testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-http-jdk-client', version: project.ext.get('selenium.version')
 }
